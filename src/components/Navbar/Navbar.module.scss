@@ -1,0 +1,17 @@
+.nav {
+  grid-area: n;
+  background-color: #000;
+}
+ul {
+  padding: 0 20px;
+  
+}
+.item {
+    color: #fff;
+    cursor: pointer;
+    transition: .1s ease-in;
+    padding-top: 8px;
+    &:hover{
+      color: #da0d14;
+    }
+  }
