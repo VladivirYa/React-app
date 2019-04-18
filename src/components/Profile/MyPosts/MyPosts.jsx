@@ -1,5 +1,6 @@
 import React from "react";
-import s from "../MyPosts/MyPosts.module.scss";
+import s from "./MyPosts.module.scss";
+import Post from "./Post/Post";
 
 const MyPosts = () => {
   return (
@@ -11,11 +12,8 @@ const MyPosts = () => {
       <div className={s.post__button}>
         <button>Add post</button>
       </div>
-      <div className={s.postItem}>
-        <div className={s.item}>post 1
-          <img src="https://www.freelogodesign.org/Content/img/logo-ex-7.png" alt=""/>
-        </div>
-        <div className={s.item}>post 2</div>
+      <div className={s.posts}>
+        <Post />
       </div>
     </div>
   );
