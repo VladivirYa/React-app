@@ -1,10 +1,12 @@
 import React from 'react';
-import "./Header.scss";
+import s from "./Header.module.scss";
 
 const Header = () => {
-    return <header className='header'>
+    return (
+        <header className={s.header}>
         <img src='https://www.freelogodesign.org/Content/img/logo-ex-7.png' />
     </header>
+    );
 }
 
 export default Header;
