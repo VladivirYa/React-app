@@ -1,0 +1,18 @@
+.user_info{
+    padding: 20px;
+    display: flex;
+  
+    img{
+      width: 200px;
+      height: 200px;
+    }
+  }
+  .description{
+    padding: 0 20px;
+    ul{
+      padding: 0;
+    }
+    span{
+      font-weight: 700;
+    }
+  }
