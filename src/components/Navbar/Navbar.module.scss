@@ -2,16 +2,24 @@
   grid-area: n;
   background-color: #000;
 }
+
 ul {
   padding: 0 20px;
-  
+
 }
+
 .item {
+  a {
+    display: block;
     color: #fff;
+    text-decoration: none;
     cursor: pointer;
     transition: .1s ease-in;
-    padding-top: 8px;
-    &:hover{
+    margin-top: 5px;
+    &:hover {
       color: #da0d14;
     }
   }
+
+
+}
