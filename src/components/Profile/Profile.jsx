@@ -9,7 +9,7 @@ const Profile = () => {
       <div>
         <div className={s.img} />
       </div>
-      <User_info />
+      <User_info us="Jony Boy" />
       <MyPosts />
     </div>
   );

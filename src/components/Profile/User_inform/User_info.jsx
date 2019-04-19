@@ -1,6 +1,8 @@
 import React from 'react';
 import s from './../User_inform/User_info.module.scss'
-const User_info = ()=>{
+
+const User_info = (props)=>{
+  
     return (
         <div className={s.user_info}>
         <div>
@@ -10,7 +12,7 @@ const User_info = ()=>{
           />
         </div>
         <div className={s.description}>
-          <h2>Tony K.</h2>
+          <h2>{props.us}</h2>
           <ul>
             <li><span>Data of Birth:</span> 2 january</li>
             <li><span>City:</span> Minsk</li>

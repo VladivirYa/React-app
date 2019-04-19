@@ -5,15 +5,18 @@ import Post from "./Post/Post";
 const MyPosts = () => {
   return (
     <div className={s.post}>
-      My posts
-      <div className={s.post__fild}>
-        <textarea name="" id="" cols="30" rows="5" />
-      </div>
-      <div className={s.post__button}>
-        <button>Add post</button>
+      <h3>My posts</h3>
+      <div className={s.post__wrap}>
+        <div className={s.fild}>
+          <textarea />
+        </div>
+        <div className={s.button}>
+          <button>Add post</button>
+        </div>
       </div>
       <div className={s.posts}>
-        <Post />
+        <Post mess="Hello world" lk="15" />
+        <Post mess="Hello world" lk="26" />
       </div>
     </div>
   );
