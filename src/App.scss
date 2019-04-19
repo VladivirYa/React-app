@@ -1,21 +1,27 @@
-*{
+* {
   box-sizing: border-box;
 }
-ul,li{
+
+ul, li {
   display: block;
   padding: 0;
 }
+
 .app-wrapper {
   margin: 20px auto;
   display: grid;
   padding: 0 15px;
   width: 100%;
   max-width: 1140px;
-  grid-template-areas:
-    "h h"
-    "n c";
+  grid-template-areas: "h h" "n c";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: 1px;
- 
+
 }
+
+.app-wrapper-content {
+  grid-area: c;
+  background-color: rgb(202, 202, 202);
+}
+
