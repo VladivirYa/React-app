@@ -1,11 +1,7 @@
 .nav {
   grid-area: n;
   background-color: #000;
-}
-
-ul {
-  padding: 0 20px;
-
+  padding: 20px;
 }
 
 .item {
@@ -19,7 +15,9 @@ ul {
     &:hover {
       color: #da0d14;
     }
+    &.activeLink{
+      color: #00e5ff;
+      transition: .2s ease-in;
+    }
   }
-
-
 }
