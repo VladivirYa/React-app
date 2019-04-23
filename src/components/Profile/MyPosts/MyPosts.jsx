@@ -5,14 +5,14 @@ import FormMessage from "./FormMessage/FormMessage";
 
 
 const MyPosts = () => {
-  return (
-    <div className={s.post}>
-      <FormMessage/>
-      <div className={s.posts}>
-        <Post mess="Hellos world" lk="15" />
-        <Post mess="Hello world" lk="26" />
-      </div>
-    </div>
-  );
+	return (
+		<div className={s.post}>
+			<FormMessage/>
+			<div className={s.posts}>
+				<Post mess="Hellos world" lk="15"/>
+				<Post mess="Hello world" lk="26"/>
+			</div>
+		</div>
+	);
 };
 export default MyPosts;

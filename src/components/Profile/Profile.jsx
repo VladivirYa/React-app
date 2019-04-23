@@ -4,15 +4,12 @@ import User_info from "./User_inform/User_info";
 import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
-  return (
-    <div>
-      <div>
-        <div className={s.img} />
-      </div>
-         <User_info us="Jony Boy" />
-      <MyPosts />
-    </div>
-  );
+	return (
+		<div>
+			<User_info us="Jony Boy"/>
+			<MyPosts/>
+		</div>
+	);
 };
 
 export default Profile;
