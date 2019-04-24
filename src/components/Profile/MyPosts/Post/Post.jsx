@@ -12,7 +12,7 @@ const Post = (props) => {
 				<h3>{props.mess}</h3>
 			</div>
 			<div className={s.like}>
-				<span>likes</span> {props.lk}
+				<span>likes</span> {props.likesCount}
 			</div>
 		</div>
 	);
