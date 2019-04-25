@@ -6,17 +6,20 @@ import FormMessage from "./FormMessage/FormMessage";
 
 const MyPosts = () => {
 
-	let postData = [
+	let posts = [
 		{id: 1, post: 'layer', likesCount: 15},
-		{id: 2, post: 'Hello world', likesCount: 22}
+		{id: 2, post: 'Hello world', likesCount: 22},
+		{id: 3, post: 'Hello world', likesCount: 22},
+		{id: 4, post: 'yo yoy oy oy o yo y oy', likesCount: 22}
 	];
+
+	let postsElement = posts.map((p)=>(<Post mess={p.post} likesCount ={p.likesCount}/>));
+
 	return (
 		<div className={s.post}>
 			<FormMessage/>
 			<div className={s.posts}>
-				<Post mess={postData[0].post} likesCount={postData[0].likesCount}/>
-				<Post mess={postData[1].post} likesCount={postData[1].likesCount}/>
-
+				{postsElement}
 			</div>
 		</div>
 	);
