@@ -10,7 +10,9 @@ const MyPosts = () => {
 		{id: 1, post: 'layer', likesCount: 15},
 		{id: 2, post: 'Hello world', likesCount: 22},
 		{id: 3, post: 'Hello world', likesCount: 22},
-		{id: 4, post: 'yo yoy oy oy o yo y oy', likesCount: 22}
+		{id: 4, post: 'yo yoy oy oy o yo y oy', likesCount: 22},
+		{id: 4, post: 'hello hello hello', likesCount: 100},
+
 	];
 
 	let postsElement = posts.map((p)=>(<Post mess={p.post} likesCount ={p.likesCount}/>));
