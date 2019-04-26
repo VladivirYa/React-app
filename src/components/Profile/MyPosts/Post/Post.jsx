@@ -7,8 +7,7 @@ const Post = (props) => {
 			<div className={s.item}>
 				<img
 					src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/1200px-NASA_logo.svg.png"
-					alt=""
-				/>
+					alt="logo"/>
 				<h3>{props.mess}</h3>
 			</div>
 			<div className={s.like}>
