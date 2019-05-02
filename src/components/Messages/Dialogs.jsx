@@ -2,16 +2,18 @@ import React from 'react';
 import s from './Dialogs.module.scss';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
+import Message2 from './Message/Message2'
 
 
 const Dialogs = (props) => {
 
 
-	let dialogsElements = props.dialogs.map((d) => (<DialogItem name={d.name} id={d.id}/>));
+	let dialogsElements = props.state.dialogs.map((d) => (<DialogItem name={d.name} id={d.id}/>));
 
 
-	let messagesElements = props.messages.map((m) => (<Message message={m.message} id={m.id}/>));
+	let messagesElements = props.state.messages.map((m) => (<Message message={m.message} id={m.id}/>));
 
+	let messages2Elements = props.state.messages2.map((m) => (<Message2 message2={m.message} id={m.id}/>));
 
 	return (
 		<div className={s.dialogs}>
@@ -21,6 +23,9 @@ const Dialogs = (props) => {
 			</ul>
 			<div className={s.messages}>
 				{messagesElements}
+			</div>
+			<div className={s.messages2}>
+				{messages2Elements}
 			</div>
 		</div>
 	);

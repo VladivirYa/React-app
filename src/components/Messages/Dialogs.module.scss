@@ -1,19 +1,24 @@
 .dialogs {
   display: grid;
-  grid-template-columns: 4fr 8fr;
+  grid-template-columns: 4fr 8fr 8fr;
 
   ul.dialogsItems {
-    list-style: disc;
+    list-style: none;
     padding: 10px;
     padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 0;
     li.dialog {
       margin-bottom: 20px;
+      display: flex;
+      align-items: center;
       a {
         color: #333;
         font-weight: 500;
         text-decoration: none;
-        transform: scale(1);
+        cursor:pointer;
         &.active {
           color: red;
           transition: .2s ease-in;
@@ -22,11 +27,19 @@
     }
   }
 }
-
-.messages {
+img{
+  width: 50px;
+  height: 40px;
+}
+.messages,
+.messages2{
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
-  .message {
+  .message,
+  .message2{
     margin-bottom: 20px;
   }
 }

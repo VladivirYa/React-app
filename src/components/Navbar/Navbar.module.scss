@@ -25,3 +25,16 @@
     }
   }
 }
+.friends{
+  margin-top: 100px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  &__wrap{
+    display: flex;
+    justify-content: space-between;
+    .item{
+      margin: 0 5px;
+    }
+  }
+}

@@ -7,7 +7,7 @@ import FormMessage from "./FormMessage/FormMessage";
 const MyPosts = (props) => {
 
 
-	let postsElement = props.posts.map((p)=>{
+	let postsElement = props.state.map((p)=>{
 	return (
 		<Post mess={p.post} likesCount ={p.likesCount}/>
 		);
