@@ -1,14 +1,15 @@
 import React from "react";
 import s from "./FormMessage.module.scss";
 
-const FormMessage = () => {
+const FormMessage = (props) => {
 
 	let getPostElement = React.createRef();
 
 	let addPost = () =>{
+		debugger;
 		let text = getPostElement.current.value;
-		alert(text)
-	}
+		props.addPost(text);
+	};
 
 	return (
 		<div>

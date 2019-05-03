@@ -4,6 +4,7 @@ import Post from "./Post/Post";
 import FormMessage from "./FormMessage/FormMessage";
 
 
+
 const MyPosts = (props) => {
 
 
@@ -15,7 +16,7 @@ const MyPosts = (props) => {
 
 	return (
 		<div className={s.post}>
-			<FormMessage/>
+			<FormMessage addPost={props.addPost}/>
 			<div className={s.posts}>
 				{postsElement}
 			</div>

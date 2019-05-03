@@ -10,6 +10,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 
+
 const App = (props) => {
 
 	return (
@@ -19,7 +20,7 @@ const App = (props) => {
 				<Navbar friends={props.state.navBar}/>
 				<div className='app-wrapper-content'>
 					<Route path='/messages' render={() => <Dialogs state={props.state.dialogsPage} state={props.state.dialogsPage}/>}/>
-					<Route path='/profile' render={() => <Profile state={props.state.profilePage}/>}/>
+					<Route path='/profile' render={() => <Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
 
 					<Route path='/news' component={News}/>
 					<Route path='/Settings' component={Settings}/>
