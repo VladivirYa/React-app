@@ -3,6 +3,7 @@ import s from './Dialogs.module.scss';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import Message2 from './Message/Message2'
+import Textarea from "./Textarea/Textarea";
 
 
 const Dialogs = (props) => {
@@ -15,6 +16,7 @@ const Dialogs = (props) => {
 	let messages2Elements = props.state.messages2.map((m) => (<Message2 message2={m.message} id={m.id}/>));
 
 	return (
+		<div>
 		<div className={s.dialogs}>
 			<ul className={s.dialogsItems}>
 				{dialogsElements}
@@ -26,6 +28,8 @@ const Dialogs = (props) => {
 			<div className={s.messages2}>
 				{messages2Elements}
 			</div>
+		</div>
+			<Textarea/>
 		</div>
 	);
 };
