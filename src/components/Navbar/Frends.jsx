@@ -1,9 +1,7 @@
 import React from 'react';
 import s from './Navbar.module.scss'
 
-
 const Friends = (props) => {
-
 	return (
 		<div >
 			<div className={s.item}>
