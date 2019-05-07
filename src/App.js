@@ -28,6 +28,7 @@ const App = (props) => {
 				</div>
 			</div>
 	);
+	debugger;
 };
 
 export default App;

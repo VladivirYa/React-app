@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
 	navBar: {
 		friends: [
@@ -21,7 +23,7 @@ let state = {
 			{id: 2, post: 'Hello world', likesCount: 22},
 			{id: 3, post: 'Hello world', likesCount: 22},
 			{id: 4, post: 'yo yoy oy oy o yo y oy', likesCount: 22},
-			{id: 4, post: 'hello hello hello', likesCount: 22},
+			{id: 5, post: 'hello hello hello', likesCount: 22},
 
 		]
 	},
@@ -52,13 +54,13 @@ let state = {
 };
 
 export let addPost = (postMessage) =>{
-	debugger;
 		let newPost = {
-			id:5,
-			message: postMessage,
+			id:6,
+			post: postMessage,
 			likesCount: 0
 		};
 		state.profilePage.posts.push(newPost);
+		rerenderEntireTree(state);
 	};
 
 export default state;

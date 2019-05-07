@@ -4,9 +4,8 @@ import s from "./FormMessage.module.scss";
 const FormMessage = (props) => {
 
 	let getPostElement = React.createRef();
-
 	let addPost = () =>{
-		debugger;
+
 		let text = getPostElement.current.value;
 		props.addPost(text);
 	};
