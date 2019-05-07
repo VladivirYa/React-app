@@ -20,7 +20,7 @@ const App = (props) => {
 				<Navbar friends={props.state.navBar}/>
 				<div className='app-wrapper-content'>
 					<Route path='/messages' render={() => <Dialogs state={props.state.dialogsPage} state={props.state.dialogsPage}/>}/>
-					<Route path='/profile' render={() => <Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+					<Route path='/profile' render={() => <Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>}/>
 
 					<Route path='/news' component={News}/>
 					<Route path='/Settings' component={Settings}/>

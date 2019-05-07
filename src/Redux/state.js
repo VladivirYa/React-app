@@ -4,14 +4,17 @@ let state = {
 	navBar: {
 		friends: [
 			{
+				id: 0,
 				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/1200px-NASA_logo.svg.png',
 				name: 'Ivan'
 			},
 			{
+				id: 1,
 				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/1200px-NASA_logo.svg.png',
 				name: 'Valentin1'
 			},
 			{
+				id: 2,
 				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/1200px-NASA_logo.svg.png',
 				name: 'Valentin2'
 			}
@@ -24,8 +27,8 @@ let state = {
 			{id: 3, post: 'Hello world', likesCount: 22},
 			{id: 4, post: 'yo yoy oy oy o yo y oy', likesCount: 22},
 			{id: 5, post: 'hello hello hello', likesCount: 22},
-
-		]
+		],
+		newPostText: 'Hello boy!'
 	},
 
 	dialogsPage: {
@@ -53,14 +56,24 @@ let state = {
 	}
 };
 
-export let addPost = (postMessage) =>{
-		let newPost = {
-			id:6,
-			post: postMessage,
-			likesCount: 0
-		};
-		state.profilePage.posts.push(newPost);
-		rerenderEntireTree(state);
+// window.state = state;
+
+export let addPost = () => {
+	let newPost = {
+		id: 6,
+		post: state.profilePage.newPostText,
+		likesCount: 0
 	};
+	state.profilePage.posts.push(newPost);
+	state.profilePage.newPostText='';
+	rerenderEntireTree(state);
+};
+
+
+export let updateNewPostText = (newText) => {
+
+	state.profilePage.newPostText= newText;
+	rerenderEntireTree(state);
+};
 
 export default state;
