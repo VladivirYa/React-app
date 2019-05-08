@@ -1,17 +1,23 @@
 import React from 'react';
 import s from './Textarea.module.scss'
 
-const Textarea = () => {
+const Textarea = (props) => {
 
-	let addMessElement = React.createRef();
+	let getMessElement = React.createRef();
 
 	let addMess = () => {
-		let mess = addMessElement.current.value;
-		alert(mess);
+		props.addMess();
 	};
+
+	let onMessChange = () =>{
+		let text = getMessElement.current.value;
+		props.updateNewMessText(text);
+
+	};
+
 	return (
 		<div className={s.wrap}>
-			<textarea ref={addMessElement}/>
+			<textarea ref={getMessElement} onChange={onMessChange} value={props.newMessText}/>
 			<div className={s.btn}>
 				<button onClick={addMess}>Add message</button>
 			</div>

@@ -39,6 +39,9 @@ let state = {
 			{id: 4, message: 'bang bang'},
 			{id: 5, message: 'hello hello hello'}
 		],
+
+		newMessText: 'Hello!!!',
+
 		messages2: [
 			{id: 1, message: 'How are you?'},
 			{id: 2, message: 'How are you?'},
@@ -56,7 +59,25 @@ let state = {
 	}
 };
 
-// window.state = state;
+window.state = state;
+
+export let addMess = () => {
+	let newMess = {
+		id: 6,
+		message: state.dialogsPage.newMessText
+	};
+	state.dialogsPage.messages.push(newMess);
+	state.dialogsPage.newMessText = '';
+	rerenderEntireTree(state);
+	debugger;
+
+};
+
+export let updateNewMessText = (newText) => {
+
+	state.dialogsPage.newMessText = newText;
+	rerenderEntireTree(state);
+};
 
 export let addPost = () => {
 	let newPost = {
@@ -65,14 +86,14 @@ export let addPost = () => {
 		likesCount: 0
 	};
 	state.profilePage.posts.push(newPost);
-	state.profilePage.newPostText='';
+	state.profilePage.newPostText = '';
 	rerenderEntireTree(state);
 };
 
 
 export let updateNewPostText = (newText) => {
 
-	state.profilePage.newPostText= newText;
+	state.profilePage.newPostText = newText;
 	rerenderEntireTree(state);
 };
 
