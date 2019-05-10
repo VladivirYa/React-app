@@ -17,7 +17,7 @@ const Textarea = (props) => {
 
 	return (
 		<div className={s.wrap}>
-			<textarea ref={getMessElement} onChange={onMessChange} value={props.newMessText}/>
+			<textarea ref={getMessElement} onChange={onMessChange} value={props.dialogsPage}/>
 			<div className={s.btn}>
 				<button onClick={addMess}>Add message</button>
 			</div>

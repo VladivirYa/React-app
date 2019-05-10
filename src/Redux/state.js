@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () =>{
+	console.log('State changed');
+};
 
 let state = {
 	navBar: {
@@ -56,12 +58,13 @@ let state = {
 			{id: 4, name: 'Victor'},
 			{id: 5, name: 'Roman'}
 		]
-	}
+	},
+
 };
 
 window.state = state;
 
-export let addMess = () => {
+export const addMess = () => {
 	let newMess = {
 		id: 6,
 		message: state.dialogsPage.newMessText
@@ -69,17 +72,16 @@ export let addMess = () => {
 	state.dialogsPage.messages.push(newMess);
 	state.dialogsPage.newMessText = '';
 	rerenderEntireTree(state);
-	debugger;
 
 };
 
-export let updateNewMessText = (newText) => {
+export const updateNewMessText = (newText) => {
 
 	state.dialogsPage.newMessText = newText;
 	rerenderEntireTree(state);
 };
 
-export let addPost = () => {
+export const addPost = () => {
 	let newPost = {
 		id: 6,
 		post: state.profilePage.newPostText,
@@ -90,11 +92,15 @@ export let addPost = () => {
 	rerenderEntireTree(state);
 };
 
-
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
 
 	state.profilePage.newPostText = newText;
 	rerenderEntireTree(state);
+};
+
+// подписчики
+export const subscribe = (observe) =>{
+	 rerenderEntireTree = observe; // Наблюдатель
 };
 
 export default state;
