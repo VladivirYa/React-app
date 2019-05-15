@@ -11,7 +11,7 @@ const MyPosts = (props) => {
 
 	return (
 		<div className={s.post}>
-			<FormMessage addPost={props.addPost} newPostText={props.newPostText} updateNewPostText={props.updateNewPostText}/>
+			<FormMessage newPostText={props.newPostText} dispatch={props.dispatch}/>
 			<div className={s.posts}>
 				{postsElement}
 			</div>

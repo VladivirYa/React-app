@@ -6,12 +6,12 @@ const Textarea = (props) => {
 	let getMessElement = React.createRef();
 
 	let addMess = () => {
-		props.addMess();
+		props.dispatch({type: 'ADD-MESS'});
 	};
 
 	let onMessChange = () =>{
 		let text = getMessElement.current.value;
-		props.updateNewMessText(text);
+		props.dispatch({type: 'UPDATE-NEW-MESS-TEXT', newText: text});
 
 	};
 

@@ -5,13 +5,16 @@ const FormMessage = (props) => {
 
 	let getPostElement = React.createRef();
 
-	let addPost = () =>{
-		props.addPost();
+	let addPost = () => {
+		// props.addPost();
+		props.dispatch({type: 'ADD-POST'});
 	};
 
-	let onPostChange = ()=>{
+	let onPostChange = () => {
 		let text = getPostElement.current.value;
-		props.updateNewPostText(text);
+		// props.updateNewPostText(text);
+		let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+		props.dispatch(action);
 	};
 
 	return (

@@ -58,45 +58,76 @@ let store = {
 		},
 
 	},
-	getState(){
-		return this._state;
-	},
-	_callSubscriber(){
+	_callSubscriber() {
 		console.log('State changed');
 	},
-	addPost() {
-		let newPost = {
-			id: 6,
-			post: this._state.profilePage.newPostText,
-			likesCount: 0
-		};
-		this._state.profilePage.posts.push(newPost);
-		this._state.profilePage.newPostText = '';
-		this._callSubscriber(this._state);
+	getState() {
+		return this._state;
 	},
-	updateNewPostText(newText){
-		this._state.profilePage.newPostText = newText;
-		this._callSubscriber(this._state);
-	},
-	addMess(){
-		let newMess = {
-			id: 6,
-			message: this._state.dialogsPage.newMessText
-		};
-		this._state.dialogsPage.messages.push(newMess);
-		this._state.dialogsPage.newMessText = '';
-		this._callSubscriber(this._state);
 
-	},
-	updateNewMessText (newText) {
-		this._state.dialogsPage.newMessText = newText;
-		this._callSubscriber(this._state);
-	},
+	// addPost() {
+	// 	let newPost = {
+	// 		id: 6,
+	// 		post: this._state.profilePage.newPostText,
+	// 		likesCount: 0
+	// 	};
+	// 	this._state.profilePage.posts.push(newPost);
+	// 	this._state.profilePage.newPostText = '';
+	// 	this._callSubscriber(this._state);
+	// },
+	// updateNewPostText(newText) {
+	// 	this._state.profilePage.newPostText = newText;
+	// 	this._callSubscriber(this._state);
+	// },
+	// addMess() {
+	// 	let newMess = {
+	// 		id: 6,
+	// 		message: this._state.dialogsPage.newMessText
+	// 	};
+	// 	this._state.dialogsPage.messages.push(newMess);
+	// 	this._state.dialogsPage.newMessText = '';
+	// 	this._callSubscriber(this._state);
+	//
+	// },
+	// updateNewMessText(newText) {
+	// 	this._state.dialogsPage.newMessText = newText;
+	// 	this._callSubscriber(this._state);
+	// },
+
 	subscribe(observe) {
 		this._callSubscriber = observe; // Наблюдатель
-	}
-};
+	},
+	dispatch(action) {   // {type: 'ADD-POST'}
+		if (action.type === 'ADD-POST') {
+			let newPost = {
+				id: 6,
+				post: this._state.profilePage.newPostText,
+				likesCount: 0
+			};
+			this._state.profilePage.posts.push(newPost);
+			this._state.profilePage.newPostText = '';
+			this._callSubscriber(this._state);
 
+		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+			this._state.profilePage.newPostText = action.newText;
+			this._callSubscriber(this._state);
+
+		} else if (action.type === 'ADD-MESS') {
+			let newMess = {
+				id: 6,
+				message: this._state.dialogsPage.newMessText
+			};
+			this._state.dialogsPage.messages.push(newMess);
+			this._state.dialogsPage.newMessText = '';
+			this._callSubscriber(this._state);
+
+		} else if (action.type === 'UPDATE-NEW-MESS-TEXT') {
+			this._state.dialogsPage.newMessText = action.newText;
+			this._callSubscriber(this._state);
+		}
+	}
+
+};
 
 
 export default store;

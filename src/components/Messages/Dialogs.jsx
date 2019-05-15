@@ -29,7 +29,7 @@ const Dialogs = (props) => {
 			{/*	{messages2Elements}*/}
 			{/*</div>*/}
 		</div>
-			<Textarea updateNewMessText={props.updateNewMessText} dialogsPage={props.state.newMessText} addMess={props.addMess}/>
+			<Textarea dialogsPage={props.state.newMessText} dispatch={props.dispatch}/>
 		</div>
 	);
 };
