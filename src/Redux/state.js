@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 let store = {
 	_state: {
 		navBar: {
@@ -98,7 +101,7 @@ let store = {
 		this._callSubscriber = observe; // Наблюдатель
 	},
 	dispatch(action) {   // {type: 'ADD-POST'}
-		if (action.type === 'ADD-POST') {
+		if (action.type === ADD_POST) {
 			let newPost = {
 				id: 6,
 				post: this._state.profilePage.newPostText,
@@ -129,7 +132,29 @@ let store = {
 
 };
 
+export const addPostActinoCreator = () => {
+	return {
+		type: ADD_POST
+	}
+};
+
+export const updateNewPostTextCreator = (text) => {
+	return {
+		type: UPDATE_NEW_POST_TEXT,
+		newText: text
+	}
+};
 
 export default store;
 window.store = store;
 // store - OOP
+
+
+function Animal(name) {
+	this.name = name;
+	this.canWalk = true;
+}
+
+var animal = new Animal("ёжик");
+
+console.log(animal)

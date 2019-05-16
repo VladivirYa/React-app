@@ -1,5 +1,8 @@
 import React from "react";
 import s from "./FormMessage.module.scss";
+import {addPostActinoCreator, updateNewPostTextCreator} from "../../../../Redux/state";
+
+
 
 const FormMessage = (props) => {
 
@@ -7,13 +10,13 @@ const FormMessage = (props) => {
 
 	let addPost = () => {
 		// props.addPost();
-		props.dispatch({type: 'ADD-POST'});
+		props.dispatch(addPostActinoCreator());
 	};
 
 	let onPostChange = () => {
 		let text = getPostElement.current.value;
 		// props.updateNewPostText(text);
-		let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+		let action = updateNewPostTextCreator(text);
 		props.dispatch(action);
 	};
 
