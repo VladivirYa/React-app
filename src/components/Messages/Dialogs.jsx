@@ -9,11 +9,11 @@ import Textarea from "./Textarea/Textarea";
 const Dialogs = (props) => {
 
 
-	let dialogsElements = props.state.dialogs.map((d) => (<DialogItem name={d.name} id={d.id}/>));
+	let dialogsElements = props.store.dialogs.map((d) => (<DialogItem name={d.name} id={d.id}/>));
 
-	let messagesElements = props.state.messages.map((m) => (<Message message={m.message} id={m.id}/>));
+	let messagesElements = props.store.messages.map((m) => (<Message message={m.message} id={m.id}/>));
 
-	// let messages2Elements = props.state.messages2.map((m) => (<Message2 message2={m.message} id={m.id}/>));
+	// let messages2Elements = props.store.messages2.map((m) => (<Message2 message2={m.message} id={m.id}/>));
 
 	return (
 		<div>
@@ -29,7 +29,7 @@ const Dialogs = (props) => {
 			{/*	{messages2Elements}*/}
 			{/*</div>*/}
 		</div>
-			<Textarea dialogsPage={props.state.newMessText} dispatch={props.dispatch}/>
+			<Textarea dialogsPage={props.store.newMessText} dispatch={props.dispatch}/>
 		</div>
 	);
 };
