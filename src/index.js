@@ -1,6 +1,6 @@
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import store from "./Redux/store";
+import store from "./Redux/redux-store";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -11,9 +11,10 @@ import 'semantic-ui-css/semantic.min.css';
 
 
 let rerenderEntireTree = (state) => {
+debugger;
 	ReactDOM.render(
 		<BrowserRouter>
-			<App store={store.getState()} dispatch={store.dispatch.bind(store)}/>
+			<App store={state} dispatch={store.dispatch.bind(store)}/>
 		</BrowserRouter>, document.getElementById('root')
 	);
 };
