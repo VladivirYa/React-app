@@ -13,6 +13,7 @@ const FormMessage = (props) => {
 		props.dispatch(addPostActionCreator());
 	};
 
+
 	let onPostChange = () => {
 		let text = getPostElement.current.value;
 		// props.updateNewPostText(text);
