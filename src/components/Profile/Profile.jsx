@@ -1,15 +1,16 @@
 import React from "react";
 import s from "./Profile.module.scss";
 import User_info from "./User_inform/User_info";
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
 const Profile = (props) => {
+
 	return (
 		<div>
 			{/*components*/}
 			<User_info us="Jony Boy"/>
-			<MyPosts state={props.profilePage.posts} dispatch={props.dispatch} newPostText={props.profilePage.newPostText} />
+			<MyPostsContainer store={props.store} />
 			{/*components end*/}
 		</div>
 	);
