@@ -15,7 +15,6 @@ const Textarea = (props) => {
 		let text = getMessElement.current.value;
 		let action = updateNewMessTextCreator(text);
 		props.dispatch(action);
-
 	};
 
 	return (

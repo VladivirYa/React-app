@@ -4,16 +4,29 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import Message2 from './Message/Message2'
 import Textarea from "./Textarea/Textarea";
+import {addMessActionCreator, updateNewMessTextCreator} from "../../Redux/dialogs-reducer";
 
 
 const Dialogs = (props) => {
 
+let state = props.dialogsPage;
 
-	let dialogsElements = props.store.dialogs.map((d) => (<DialogItem name={d.name} id={d.id}/>));
+	let dialogsElements = state.dialogs.map((d) => (<DialogItem name={d.name} id={d.id}/>));
 
-	let messagesElements = props.store.messages.map((m) => (<Message message={m.message} id={m.id}/>));
+	let messagesElements = state.messages.map((m) => (<Message message={m.message} id={m.id}/>));
 
 	// let messages2Elements = props.store.messages2.map((m) => (<Message2 message2={m.message} id={m.id}/>));
+
+	let getMessElement = React.createRef();
+
+	let onAddMess = () => {
+		props.addMess();
+	};
+
+	let onMessChange = () =>{
+		let text = getMessElement.current.value;
+		props.updateNewMessTextCreator(text);
+	};
 
 	return (
 		<div>
@@ -29,7 +42,13 @@ const Dialogs = (props) => {
 			{/*	{messages2Elements}*/}
 			{/*</div>*/}
 		</div>
-			<Textarea dialogsPage={props.store.newMessText} dispatch={props.dispatch}/>
+			<div className={s.wrap}>
+				<textarea ref={getMessElement} placeholder='Enter your message' onChange={onMessChange} value={props.dialogsPage}/>
+				<div className={s.btn}>
+					{/*<button onClick={addMess}>Add message</button>*/}
+					<button className="ui primary button" onClick={onAddMess}>Click Here</button>
+				</div>
+			</div>
 		</div>
 	);
 };
