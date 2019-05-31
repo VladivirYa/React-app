@@ -4,7 +4,7 @@ import {addMessActionCreator, updateNewMessTextCreator} from "../../Redux/dialog
 
 
 const DialogsContainer = (props) => {
- debugger;
+ debugger
 	let state = props.store.getState().dialogsPage;
 
 	let addMess = () => {
@@ -16,7 +16,7 @@ const DialogsContainer = (props) => {
 		props.store.dispatch(action);
 	};
 
-	return (<Dialogs addMess={addMess} updateNewMessTextCreator={onMessChange} dialogsPage={state}/>);
+	return (<Dialogs addMesss={addMess} updateNewMessTextCreator={onMessChange} dialogsPage={state} newMessText={state.newMessText}/>);
 };
 
 export default DialogsContainer;

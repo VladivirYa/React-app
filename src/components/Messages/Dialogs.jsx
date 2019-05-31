@@ -3,13 +3,11 @@ import s from './Dialogs.module.scss';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import Message2 from './Message/Message2'
-import Textarea from "./Textarea/Textarea";
-import {addMessActionCreator, updateNewMessTextCreator} from "../../Redux/dialogs-reducer";
 
 
 const Dialogs = (props) => {
-
-let state = props.dialogsPage;
+ debugger
+	let state = props.dialogsPage;
 
 	let dialogsElements = state.dialogs.map((d) => (<DialogItem name={d.name} id={d.id}/>));
 
@@ -23,27 +21,27 @@ let state = props.dialogsPage;
 		props.addMess();
 	};
 
-	let onMessChange = () =>{
+	let onMessChange = () => {
 		let text = getMessElement.current.value;
 		props.updateNewMessTextCreator(text);
 	};
 
 	return (
 		<div>
-		<div className={s.dialogs}>
-			<ul className={s.dialogsItems}>
-				{dialogsElements}
-
-			</ul>
-			<div className={s.messages}>
-				{messagesElements}
+			<div className={s.dialogs}>
+				<ul className={s.dialogsItems}>
+					{dialogsElements}
+				</ul>
+				<div className={s.messages}>
+					{messagesElements}
+				</div>
+				{/*<div className={s.messages2}>*/}
+				{/*	{messages2Elements}*/}
+				{/*</div>*/}
 			</div>
-			{/*<div className={s.messages2}>*/}
-			{/*	{messages2Elements}*/}
-			{/*</div>*/}
-		</div>
 			<div className={s.wrap}>
-				<textarea ref={getMessElement} placeholder='Enter your message' onChange={onMessChange} value={props.dialogsPage}/>
+				<textarea ref={getMessElement} placeholder='Enter your message' onChange={onMessChange}
+				          value={props.newMessText}/>
 				<div className={s.btn}>
 					{/*<button onClick={addMess}>Add message</button>*/}
 					<button className="ui primary button" onClick={onAddMess}>Click Here</button>
