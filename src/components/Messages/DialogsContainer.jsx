@@ -1,22 +1,31 @@
 import React from 'react';
 import Dialogs from "./Dialogs";
 import {addMessActionCreator, updateNewMessTextCreator} from "../../Redux/dialogs-reducer";
+import StoreContext from "../../StoreContext";
 
 
-const DialogsContainer = (props) => {
- debugger
-	let state = props.store.getState().dialogsPage;
+const DialogsContainer = () => {
 
-	let addMess = () => {
-		props.store.dispatch(addMessActionCreator());
-	};
+	return <StoreContext.Consumer>
+		{
+			(store) => {
+				let state = store.getState().dialogsPage;
 
-	let onMessChange = (text) =>{
-		let action = updateNewMessTextCreator(text);
-		props.store.dispatch(action);
-	};
+				let addMess = () => {
+					store.dispatch(addMessActionCreator());
+				};
 
-	return (<Dialogs addMesss={addMess} updateNewMessTextCreator={onMessChange} dialogsPage={state} newMessText={state.newMessText}/>);
+				let onMessChange = (text) => {
+					let action = updateNewMessTextCreator(text);
+					store.dispatch(action);
+				};
+				return <Dialogs addMess={addMess}
+				                updateNewMessTextCreator={onMessChange}
+				                dialogsPage={state}
+				                newMessText={state.newMessText}/>
+			}
+		}
+	</StoreContext.Consumer>
 };
 
 export default DialogsContainer;

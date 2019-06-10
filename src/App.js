@@ -13,15 +13,13 @@ import DialogsContainer from "./components/Messages/DialogsContainer";
 
 
 const App = (props) => {
-
 	return (
 			<div className='app-wrapper'>
 				<Header/>
 				<Navbar state={props.state.navBar}/>
 				<div className='app-wrapper-content'>
-					<Route path='/messages' render={() => <DialogsContainer store={props.store} />}/>
-					<Route path='/profile' render={() => <Profile store={props.store} />}/>
-
+					<Route path='/messages' render={ () => <DialogsContainer/>}/>
+					<Route path='/profile' render={ () => <Profile/>}/>
 					<Route path='/news' component={News}/>
 					<Route path='/Settings' component={Settings}/>
 					<Route path='/Music' component={Music}/>
