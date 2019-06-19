@@ -10,7 +10,7 @@ let initialState = {
 		{id: 5, message: 'hello hello hello'}
 	],
 
-	newMessText: '',
+	newMessText: "",
 
 	messages2: [
 		{id: 1, message: 'How are you?'},
@@ -30,19 +30,22 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
 
-
 	switch (action.type) {
 		case ADD_MESS:
-			let newMess = {
-				id: 6,
-				message: state.newMessText
+			let text = state.newMessText;
+			return {
+				...state,
+				newMessText: '',
+				messages: [...state.messages, {id: 6, message: text}]
 			};
-			state.messages.push(newMess);
-			state.newMessText = '';
-			break;
+
 		case UPDATE_NEW_MESS_TEXT:
-			state.newMessText = action.newText;
-			break;
+			 return {
+			 	...state,
+			   newMessText: action.newText
+			 };
+
+
 	}
 
 	return state;
