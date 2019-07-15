@@ -29,7 +29,7 @@ const MyPosts = (props) => {
 			</div>
 			<div className={s.post__wrap}>
 				<div className={s.field}>
-					<textarea ref={newPostElement} onChange={onPostChange} value={props.newPostText}/>
+					<textarea ref={newPostElement} onChange={onPostChange} placeholder='Enter your message' value={props.newPostText}/>
 				</div>
 				<div className={s.button}>
 					<button onClick={onAddPost}>Add post</button>
