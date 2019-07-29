@@ -1,16 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {
-	followActionCreator,
-	setCurrentPageAC,
-	setTotalUsersCountAC,
-	setUsersAC,
-	unfollowActionCreator,
-	toggleIsFetchingAC
+	follow,
+	setCurrentPage,
+	setTotalUsersCount,
+	setUsers,
+	unfollow,
+	toggleIsFetching
 } from '../../Redux/users-reducer';
 import * as axios from 'axios';
 import Users from './Users';
-import preloader from '../../images/25.svg'
 import Preloader from "../common/Preloader/Preloader";
 
 
@@ -63,28 +62,28 @@ let mapStateToProps = (state) => {
 	}
 };
 
-let mapDispatchToProps = (dispatch) => {
-	return {
-		follow: (userId) => {
-			dispatch(followActionCreator(userId));
-		},
-		unfollow: (userId) => {
-			dispatch(unfollowActionCreator(userId));
-		},
-		setUsers: (users) => {
-			dispatch(setUsersAC(users));
-		},
-		setCurrentPage: (pageNumber) => {
-			dispatch(setCurrentPageAC(pageNumber));
-		},
-		setTotalUsersCount: (totalCount) => {
-			dispatch(setTotalUsersCountAC(totalCount));
-		},
-		toggleIsFetching: (isFetching) => {
-			dispatch(toggleIsFetchingAC(isFetching));
-		}
+// let mapDispatchToProps = (dispatch) => {
+// 	return {
+// 		follow: (userId) => {
+// 			dispatch(followActionCreator(userId));
+// 		},
+// 		unfollow: (userId) => {
+// 			dispatch(unfollowActionCreator(userId));
+// 		},
+// 		setUsers: (users) => {
+// 			dispatch(setUsersAC(users));
+// 		},
+// 		setCurrentPage: (pageNumber) => {
+// 			dispatch(setCurrentPageAC(pageNumber));
+// 		},
+// 		setTotalUsersCount: (totalCount) => {
+// 			dispatch(setTotalUsersCountAC(totalCount));
+// 		},
+// 		toggleIsFetching: (isFetching) => {
+// 			dispatch(toggleIsFetchingAC(isFetching));
+// 		}
+// 	}
+// };
 
-	}
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching,})(UsersContainer);
