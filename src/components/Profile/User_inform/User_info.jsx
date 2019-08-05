@@ -1,8 +1,11 @@
 import React from 'react';
 import s from './../User_inform/User_info.module.scss'
+import Preloader from "../../common/Preloader/Preloader";
 
 const User_info = (props) => {
-
+	if(!props.profile){
+		return <Preloader/>
+	}
 	return (
 		<div>
 			<div>
@@ -10,18 +13,14 @@ const User_info = (props) => {
 			</div>
 			<div className={s.user_info}>
 				<div>
-					<img
-						src="https://marketplace.canva.com/MAA_Ae2e8_I/1/0/thumbnail_large/canva-handmade-logo-profile-picture-MAA_Ae2e8_I.jpg"
-						alt=""
-					/>
+					<img src={props.profile.photos.large}/>
 				</div>
 				<div className={s.description}>
-					<h2>{props.us}</h2>
+					<div>Статус : {props.profile.aboutMe}</div>
 					<ul>
-						<li><span>Data of Birth:</span> 2 january</li>
-						<li><span>City:</span> Minsk</li>
-						<li><span>Eduvation:</span> BSU'11</li>
-						<li><span>Web Site:</span> //google.com.ua</li>
+						<li><span>Facebook : </span>{props.profile.contacts.facebook}</li>
+							<li><span>github : </span>{props.profile.contacts.github}</li>
+						<li><span>Полное имя : </span>{props.profile.fullName}</li>
 					</ul>
 				</div>
 			</div>
