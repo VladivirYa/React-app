@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './../User_inform/User_info.module.scss'
 import Preloader from "../../common/Preloader/Preloader";
+import UserStatus from "./UserStatus";
 
 const User_info = (props) => {
 	if(!props.profile){
@@ -8,13 +9,15 @@ const User_info = (props) => {
 	}
 	return (
 		<div>
-			<div>
-				<div className={s.img}/>
-			</div>
+			{/*<div>*/}
+			{/*	<div className={s.img}/>*/}
+			{/*</div>*/}
 			<div className={s.user_info}>
 				<div>
 					<img src={props.profile.photos.large}/>
+					<UserStatus status={"Hello my friends"}/>
 				</div>
+
 				<div className={s.description}>
 					<div>Статус : {props.profile.aboutMe}</div>
 					<ul>
