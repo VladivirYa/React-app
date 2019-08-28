@@ -4,6 +4,7 @@ import {addMessActionCreator, updateNewMessTextCreator} from "../../Redux/dialog
 import connect from "react-redux/es/connect/connect";
 import {Redirect} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 
 let mapStateToProps = (state) => {
@@ -26,8 +27,12 @@ let mapDispatchToProps = (dispatch) => {
 	}
 };
 
-let AuthRedirectComponent = withAuthRedirect(Dialogs);
 
-const SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
+// let AuthRedirectComponent = withAuthRedirect(Dialogs);
+//
+// const SuperDialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 
-export default SuperDialogsContainer;
+export default compose(
+	connect(mapStateToProps, mapDispatchToProps),
+	withAuthRedirect
+)(Dialogs);

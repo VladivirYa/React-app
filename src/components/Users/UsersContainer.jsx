@@ -4,6 +4,7 @@ import {follow, unfollow, setCurrentPage, getUsersThunk} from '../../Redux/users
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 
 
@@ -71,6 +72,7 @@ let mapStateToProps = (state) => {
 // 	}
 // };
 
-let withRedirect = withAuthRedirect(UsersContainer);
-
-export default connect(mapStateToProps, {follow, unfollow, setCurrentPage, getUsers: getUsersThunk})(withRedirect);
+export default compose(
+	connect(mapStateToProps, {follow, unfollow, setCurrentPage, getUsers: getUsersThunk}),
+	withAuthRedirect
+)(UsersContainer);

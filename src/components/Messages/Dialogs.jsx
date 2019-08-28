@@ -27,9 +27,6 @@ const Dialogs = (props) => {
 		props.updateNewMessTextCreator(text);
 	};
 
-	if (props.isAuth == false){
-		return <Redirect to={"/login"}/>
-	}
 
 	return (
 		<div>
