@@ -15,7 +15,7 @@ const User_info = (props) => {
 			<div className={s.user_info}>
 				<div>
 					<img src={props.profile.photos.large}/>
-					<UserStatus status={"Hello my friends"}/>
+					<UserStatus  status={props.status} updateUserStatus={props.updateUserStatus}/>
 				</div>
 
 				<div className={s.description}>
