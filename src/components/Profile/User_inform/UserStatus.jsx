@@ -1,6 +1,4 @@
 import React from 'react';
-import s from './../User_inform/User_info.module.scss'
-import Preloader from "../../common/Preloader/Preloader";
 
 class UserStatus extends React.Component {
 
@@ -33,6 +31,14 @@ class UserStatus extends React.Component {
 		});
 
 	};
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.status !== this.props.status) {
+			this.setState({
+				status: this.props.status
+			})
+		}
+	}
 
 	render() {
 		return (
