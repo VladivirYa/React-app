@@ -1,5 +1,4 @@
-const UPDATE_NEW_MESS_TEXT = 'UPDATE-NEW-MESS-TEXT';
-const ADD_MESS = 'ADD-MESS';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let initialState = {
 	messages: [
@@ -9,8 +8,6 @@ let initialState = {
 		{id: 4, message: 'bang bang'},
 		{id: 5, message: 'hello hello hello'}
 	],
-
-	newMessText: "",
 
 	messages2: [
 		{id: 1, message: 'How are you?'},
@@ -31,28 +28,17 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
 
 	switch (action.type) {
-		case ADD_MESS:
-			let text = state.newMessText;
+		case SEND_MESSAGE:
+			let text = action.newMassageBody;
 			return {
 				...state,
-				newMessText: '',
 				messages: [...state.messages, {id: 6, message: text}]
 			};
-
-		case UPDATE_NEW_MESS_TEXT:
-			 return {
-			 	...state,
-			   newMessText: action.newText
-			 };
-
-
 	}
 
 	return state;
 };
 
-export const addMessActionCreator = () => ({type: ADD_MESS});
-
-export const updateNewMessTextCreator = (text) => ({type: UPDATE_NEW_MESS_TEXT, newText: text});
+export const addMessActionCreator = (newMassageBody) => ({type: SEND_MESSAGE, newMassageBody});
 
 export default dialogsReducer;

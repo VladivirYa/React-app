@@ -2,9 +2,20 @@ import React from 'react';
 import s from './Dialogs.module.scss';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import Message2 from './Message/Message2'
-import Redirect from "react-router-dom/es/Redirect";
+import {Field, reduxForm} from "redux-form";
 
+const AddMessageForm = (props) => {
+	return (
+		<form className={s.wrap} onSubmit={props.handleSubmit}>
+			<Field component="textarea" name="newMassageBody" placeholder="Enter your message"/>
+			<div className={s.btn}>
+				<button type="submit" className="ui primary button">Click Here</button>
+			</div>
+		</form>
+	)
+};
+
+const AddMessageReduxForm = reduxForm({form: 'dialogsAddMessageForm'})(AddMessageForm);
 
 const Dialogs = (props) => {
 
@@ -14,43 +25,27 @@ const Dialogs = (props) => {
 
 	let messagesElements = state.messages.map((m) => (<Message message={m.message} key={m.id} id={m.id}/>));
 
-	// let messages2Elements = props.store.messages2.map((m) => (<Message2 message2={m.message} id={m.id}/>));
-
-	let getMessElement = React.createRef();
-
-	let onAddMess = () => {
-		props.addMess();
-	};
-
-	let onMessChange = (e) => {
-		let text = e.target.value;
-		props.updateNewMessTextCreator(text);
+	let addNewMessage = (values) => {
+		props.sendMess(values.newMassageBody);
 	};
 
 
 	return (
 		<div>
 			<div className={s.dialogs}>
-				<ul className={s.dialogsItems}>
-					{dialogsElements}
-				</ul>
-				<div className={s.messages}>
-					{messagesElements}
+				<div className={s.dialogs_box}>
+					<ul className={s.dialogsItems}>
+						{dialogsElements}
+					</ul>
+					<div className={s.messages}>
+						{messagesElements}
+					</div>
 				</div>
-				{/*<div className={s.messages2}>*/}
-				{/*	{messages2Elements}*/}
-				{/*</div>*/}
+
+				<AddMessageReduxForm onSubmit={addNewMessage}/>
+
 			</div>
-			<div className={s.wrap}>
-				<textarea ref={getMessElement}
-				          placeholder='Enter your message'
-				          onChange={onMessChange}
-				          value={props.newMessText}/>
-				<div className={s.btn}>
-					{/*<button onClick={addMess}>Add message</button>*/}
-					<button className="ui primary button" onClick={onAddMess}>Click Here</button>
-				</div>
-			</div>
+
 		</div>
 	);
 };

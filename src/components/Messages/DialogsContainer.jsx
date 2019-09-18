@@ -1,8 +1,7 @@
 import React from 'react';
 import Dialogs from "./Dialogs";
-import {addMessActionCreator, updateNewMessTextCreator} from "../../Redux/dialogs-reducer";
+import {addMessActionCreator} from "../../Redux/dialogs-reducer";
 import connect from "react-redux/es/connect/connect";
-import {Redirect} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
@@ -17,12 +16,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
 	return {
-		updateNewMessTextCreator: (text) => {
-			let action = updateNewMessTextCreator(text);
-			dispatch(action);
-		},
-		addMess: () => {
-			dispatch(addMessActionCreator());
+		sendMess: (newMassageBody) => {
+			dispatch(addMessActionCreator(newMassageBody));
 		}
 	}
 };

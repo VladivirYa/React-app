@@ -1,6 +1,7 @@
 .dialogs {
-  display: grid;
-  grid-template-columns: 4fr 8fr 8fr;
+  //display: grid;
+  //grid-template-columns: 4fr 8fr 8fr;
+  display: flax;
 
   ul.dialogsItems {
     list-style: none;
@@ -27,6 +28,10 @@
     }
   }
 }
+.dialogs_box{
+  display: flex;
+  justify-content: space-around;
+}
 img{
   width: 50px;
   height: 40px;
@@ -43,7 +48,7 @@ img{
     margin-bottom: 20px;
   }
 }
-.wrap{
+form.wrap{
   margin: 0 20px;
   textarea{
     resize: none;
