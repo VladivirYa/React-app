@@ -34,7 +34,6 @@ const Dialogs = (props) => {
 		props.sendMess(values.newMassageBody);
 	};
 
-
 	return (
 		<div>
 			<div className={s.dialogs}>

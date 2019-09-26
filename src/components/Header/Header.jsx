@@ -10,7 +10,8 @@ const Header = (props) => {
 				     src='https://yt3.ggpht.com/a-/AAuE7mB-sN6TajR14CcScVbgjsa421akzDrjgknd3g=s900-mo-c-c0xffffffff-rj-k-no'/>
 			</NavLink>
 			<div className={s.loginBlock}>
-				{props.isAuth ? props.login :
+				{props.isAuth
+					? <div>{props.login} - <button onClick={props.logout}>Log in</button></div> :
 					<NavLink to={'/login'}> Login </NavLink>}
 			</div>
 		</header>
