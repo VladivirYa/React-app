@@ -31,6 +31,7 @@ import s from './FormsControls.module.scss';
 
 
 export const Textarea = ({input, meta, ...props}) => {
+
 	const hasError = meta.touched && meta.error;
 
 	return (
@@ -51,7 +52,7 @@ export const Input = ({input, meta, ...props}) => {
 			<div className={s.loginBlock}>
 				<input {...input} {...props}/>
 			</div>
-			<div className={s.loginError}>
+			 <div className={s.loginError}>
 			{hasError && <span>{meta.error}</span>}
 			</div>
 		</div>
