@@ -21,7 +21,6 @@ const authReducer = (state = initialState, action) => {
 				...state,
 				...action.data,
 				isAuth: true
-
 			};
 	}
 	return state;
