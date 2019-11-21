@@ -19,8 +19,9 @@ const authReducer = (state = initialState, action) => {
 		case SET_USER_DATE:
 			return {
 				...state,
-				...action.payload
-				// isAuth: true
+				...action.data,
+				isAuth: true
+
 			};
 	}
 	return state;
